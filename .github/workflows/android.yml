@@ -21,7 +21,15 @@ jobs:
 
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew
+
     - name: Build with Gradle
       run: ./gradlew build
-    - name: build library aar
+
+    - name: Build Library AAR
       run: ./gradlew mylibrary:assembleRelease
+
+    - name: Check Library Dependecies
+      run: ./gradlew mylibrary:dependencies
+
+    - name: Check App Dependecies
+      run: ./gradlew app:dependencies
