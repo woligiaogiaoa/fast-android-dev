@@ -4,9 +4,7 @@ import android.app.Activity;
 import android.app.Fragment;
 import android.content.Context;
 import android.content.Intent;
-import android.support.annotation.Nullable;
 
-import android.support.v4.app.FragmentActivity;
 
 public class ResFragment extends Fragment {
 
@@ -24,7 +22,7 @@ public class ResFragment extends Fragment {
 
     public interface ResultCallback{
 
-        void onActivityResult(int resultCode, @Nullable Intent data);
+        void onActivityResult(int resultCode, Intent data);
     }
 
 
