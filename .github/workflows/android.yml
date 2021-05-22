@@ -33,3 +33,7 @@ jobs:
 
     - name: Check App Dependecies
       run: ./gradlew app:dependencies
+
+
+    - name: Check library ktx Dependecies
+      run: ./gradlew fast-dev-ktx:dependencies

@@ -1,3 +1,4 @@
+include ':fast-dev-ktx'
 include ':mylibrary'
 include ':app'
 rootProject.name = "FastAndroidDev"
