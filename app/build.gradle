@@ -32,6 +32,9 @@ dependencies {
 
     def kotlin_version='1.5.0'
 
+    //implementation 'com.github.woligiaogiaoa:fast-android-dev:v2.0'
+    //implementation 'com.github.jsn:fast-android-dev-ktx:1.0'
+
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
 
     //noinspection GradleCompatible

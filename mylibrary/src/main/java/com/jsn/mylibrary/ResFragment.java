@@ -1,9 +1,12 @@
 package com.jsn.mylibrary;
 
+import android.annotation.TargetApi;
 import android.app.Activity;
 import android.app.Fragment;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Build;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
 
@@ -52,15 +55,24 @@ public class ResFragment extends Fragment {
         resultCallback=null;
     }
 
-    //it may throw
+    //it throws  when activity not active state
     public static void  startActivityForRes(Activity activity,
                                             Intent intent,
                                             int requestCode,
                                             ResultCallback callback){
+        assertNotDestroyed(activity);
         ResFragment fragment=new ResFragment();
         fragment.init(intent,requestCode,callback);
+        //commit throw exception when activity state already saved
         activity.getFragmentManager().beginTransaction().add(fragment,ResFragment.class.getSimpleName()).commit();
 
+    }
+
+    @TargetApi(Build.VERSION_CODES.JELLY_BEAN_MR1)
+    private static void assertNotDestroyed(@NonNull Activity activity) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1 && activity.isDestroyed()) {
+            throw new IllegalArgumentException("You cannot start a load for a destroyed activity");
+        }
     }
 
 
